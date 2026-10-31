@@ -1,0 +1,187 @@
+:root {
+    /* Color Palette */
+    --primary-bg: #121824;      /* Deep Slate Charcoal */
+    --surface-bg: #1e2640;      /* Darker Blue-Grey for Cards */
+    --accent-orange: #ff5a00;   /* Athletic Orange */
+    --text-main: #f4f5f7;       /* Off-White */
+    --text-muted: #9ba4b4;      /* Soft Muted Grey */
+    
+    /* 8px Base Spacing System */
+    --space-8: 8px;
+    --space-16: 16px;
+    --space-24: 24px;
+    --space-32: 32px;
+    --space-64: 64px;
+}
+
+
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding-bottom: var(--space-64);
+}
+
+h1, h2, h3 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-main);
+    margin-bottom: var(--space-16);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    border-left: 4px solid var(--accent-orange);
+    padding-left: var(--space-8);
+}
+
+p {
+    margin-bottom: var(--space-16);
+    color: var(--text-muted);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--space-8);
+    margin: var(--space-16) 0;
+}
+
+ul {
+    list-style: none;
+    margin-bottom: var(--space-16);
+}
+
+li {
+    margin-bottom: var(--space-8);
+}
+
+/* ==========================================
+   CLASS SELECTORS (Requirement 1 & 2)
+   ========================================== */
+.main-header {
+    background-color: var(--surface-bg);
+    padding: var(--space-32) var(--space-16);
+    text-align: center;
+    border-bottom: 3px solid var(--accent-orange);
+}
+
+.logo {
+    max-height: 80px;
+    margin: 0 auto var(--space-16) auto;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-32) var(--space-16);
+}
+
+.section-block {
+    margin-bottom: var(--space-32);
+    background-color: var(--surface-bg);
+    padding: var(--space-24);
+    border-radius: var(--space-8);
+}
+
+/* Team & Workout Showcase Layout (Flexbox/Grid Rule) */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column default for mobile */
+    gap: var(--space-24);
+}
+
+.profile-card, .workout-card {
+    background-color: var(--primary-bg);
+    padding: var(--space-16);
+    border-radius: var(--space-8);
+    border-top: 2px solid var(--accent-orange);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Global Nav Links Styling */
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-16);
+    margin: var(--space-16) 0;
+}
+
+.nav-menu a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    padding: var(--space-8) var(--space-16);
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--accent-orange);
+    border-color: var(--accent-orange);
+}
+
+/* ==========================================
+   ID SELECTOR (Requirement 1)
+   ========================================== */
+#main-footer {
+    background-color: var(--surface-bg);
+    padding: var(--space-32) var(--space-16);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    border-top: 1px solid var(--accent-orange);
+}
+
+#main-footer p {
+    margin-bottom: var(--space-8);
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   RESPONSIVENESS & MEDIA QUERIES (Requirement 3)
+   ========================================== */
+
+/* 1. Tablet Query (768px and up) */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+    
+    .grid-layout {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+    
+    body {
+        padding-bottom: 120px; /* Leave room for fixed footer */
+    }
+}
+
+/* 2. Desktop Query (1200px and up) */
+@media (min-width: 1200px) {
+    .grid-layout {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on wide screens */
+    }
+    
+    .content-container {
+        padding: var(--space-64) 0;
+    }
+}

@@ -1,51 +1,66 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout | Bmyptla</title>
-     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   <header>
-     <img src="Bmyptla.jpg" alt="logo of the company">
-     <h1>The Workout</h1>
-     <p>300 routine / 2 Dumbbell workout / Experience / Calistenics</p>
-     <img src="300.png" alt="logo of the routine.">
-     <p>Be ready to experience the most intense workout</p>
-</header>
+    <header class="main-header">
+        <img class="logo" src="Bmyptla.jpg" alt="Bmyptla company logo">
+        <h1>The Workout</h1>
+        <p>300 Routine / 2 Dumbbell Workout / Experience Calisthenics</p>
+        <img src="300.png" alt="300 Routine logo">
+        <p>Be ready to experience the most intense workout.</p>
+    </header>
 
-<main>
-    <section>
-        <h2>Exercise with Intention</h2>
-        <p>Rooted in experience by our most talented Strength Coaches. This Combination workout includes several muscle groups, with a base movement and another that will increase the repetition in a pyramid style</p>
-        <img src="movingtire.jpg" alt="girl moving a tire">
-        <p>Calendar: Book a Free Assesstment</p>
-        <p>2 Dumbbell Workout</p>
-        <img src="2dumbbellbaddie.jpg" alt="girl with two dumbells">
-        <p>Experience Calisthenics</p>
-        <img src="experiencecalisthenics.jpg" alt="people in a park exercicing">
+    <main class="content-container">
+        <section class="section-block">
+            <h2>Exercise with Intention</h2>
+            <p>Rooted in the experience of our most talented Strength Coaches. This combination workout trains several muscle groups, with a base movement and a second movement whose repetitions increase in a pyramid style.</p>
+            <p><a href="mailto:killitwith300@300routine.com?subject=Free%20Assessment">Book a Free Assessment</a></p>
 
-</section>
+            <div class="grid-layout">
+                <article class="workout-card">
+                    <h3>300 Routine</h3>
+                    <img src="movingtire.jpg" alt="Woman flipping a tire">
+                </article>
 
-<section>
-    <h2>Contact Info:</h2>
-      <ul>
-        <li>Contact us: 6264453343</li>
-        <li>Email: killitwith300@300routine.com</li>
-        <li>Creator: Adrian Vicioso</li>
-      </ul>
-    </section>
-  </main>
+                <article class="workout-card">
+                    <h3>2 Dumbbell Workout</h3>
+                    <img src="2dumbbellbaddie.jpg" alt="Woman training with two dumbbells">
+                </article>
 
-  <footer>
-    <p>Created by Adrian Vicioso.</p>
-       <nav>
-          <a href="home.html">Home</a>
-          <a href="about.html">Work</a>
-          <a href="workout.html">About</a>
-     </nav>
-  </footer>
+                <article class="workout-card">
+                    <h3>Experience Calisthenics</h3>
+                    <img src="experiencecalisthenics.jpg" alt="People exercising in a park">
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <h2>Contact Info</h2>
+            <ul>
+                <li><strong>Phone:</strong> 626-744-3486</li>
+                <li><strong>Email:</strong> killitwith300@300routine.com</li>
+                <li><strong>Creator:</strong> Adrian Vicioso</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <p>Created by Adrian Vicioso.</p>
+        <nav class="nav-menu">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="workout.html">Workout</a>
+        </nav>
+    </footer>
 
 </body>
 </html>

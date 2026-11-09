@@ -1,39 +1,48 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Bmyptla</title>
-     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   <header>
-     <img src="Bmyptla.jpg" alt="logo of the company">
-    <h1>Home</h1>
-    <p>Home page</p>
-     <p>300 routine/2 Dumbbell workout/Experience Calistenics.</p>
-    <p>Browse Workouts</p>
-</header>
+    <header class="main-header">
+        <img class="logo" src="Bmyptla.jpg" alt="Bmyptla company logo">
+        <h1>Home</h1>
+        <p>300 Routine / 2 Dumbbell Workout / Experience Calisthenics</p>
+        <p><a href="workout.html">Browse Workouts</a></p>
+    </header>
 
-<main>
-    <section>
-        <h2>Exercise with Intention</h2>
-        <p>Browse our free Calisthenics Library with only home exercises. Enjoy our Video Guide, Pictures and Instructions made by a professional Strenght Coach Mr Adrian Vicioso, and train like the BOSS you are, at your own pace. </p>
-        <img src="300.png" alt="logo of the routine.">
-   </section>
+    <main class="content-container">
+        <section class="section-block">
+            <h2>Exercise with Intention</h2>
+            <p>Browse our free Calisthenics Library with only home exercises. Enjoy our Video Guide, Pictures and Instructions made by a professional Strength Coach, Mr. Adrian Vicioso, and train like the BOSS you are, at your own pace.</p>
+            <img src="300.png" alt="300 Routine logo">
+        </section>
 
-<section>
-    <h2>Contact Us</h2>
-    <ul>
-        <li><strong>Email: killitwith300@300routine.com</strong>
-    <li><strong>Creator: Adrian Vicioso</strong></li>
-    <li><strong>Phone: 6267443486</strong></li>
-</ul>
-     </section>
-  </main>
-  <footer>
-    <p>Created by Adrian Vicioso.</p>
-</footer>
+        <section class="section-block">
+            <h2>Contact Us</h2>
+            <ul>
+                <li><strong>Email:</strong> killitwith300@300routine.com</li>
+                <li><strong>Creator:</strong> Adrian Vicioso</li>
+                <li><strong>Phone:</strong> 626-744-3486</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <p>Created by Adrian Vicioso.</p>
+        <nav class="nav-menu">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="workout.html">Workout</a>
+        </nav>
+    </footer>
 
 </body>
 </html>

@@ -136,6 +136,136 @@
         </nav>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+    // Accessible validation for the contact form
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("contactForm");
+      if (!form) return;
+
+      const summary = document.getElementById("form-errors");
+      const success = document.getElementById("form-success");
+
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const messageInput = document.getElementById("message");
+      const firstGoal = document.getElementById("goal-strength");
+
+      const nameError = document.getElementById("name-error");
+      const emailError = document.getElementById("email-error");
+      const goalError = document.getElementById("goal-error");
+      const messageError = document.getElementById("message-error");
+
+      // Show an error: red border (aria-invalid) + message text
+      function showError(input, errorEl, message) {
+        if (input) input.setAttribute("aria-invalid", "true");
+        errorEl.textContent = message;
+        errorEl.hidden = false;
+      }
+
+      // Remove an error
+      function clearError(input, errorEl) {
+        if (input) input.removeAttribute("aria-invalid");
+        errorEl.textContent = "";
+        errorEl.hidden = true;
+      }
+
+      // Check every field and return a list of problems
+      function validate() {
+        const errors = [];
+
+        clearError(nameInput, nameError);
+        if (nameInput.value.trim() === "") {
+          showError(nameInput, nameError, "Please enter your full name.");
+          errors.push({ field: nameInput, text: "Full name is required." });
+        }
+
+        clearError(emailInput, emailError);
+        if (emailInput.value.trim() === "") {
+          showError(emailInput, emailError, "Please enter your email.");
+          errors.push({ field: emailInput, text: "Email is required." });
+        } else if (!emailInput.validity.valid) {
+          showError(emailInput, emailError, "Enter a valid email, like name@email.com.");
+          errors.push({ field: emailInput, text: "Email format is not valid." });
+        }
+
+        const goalChecked = form.querySelector('input[name="goal"]:checked');
+        clearError(null, goalError);
+        if (!goalChecked) {
+          showError(null, goalError, "Please choose your main goal.");
+          errors.push({ field: firstGoal, text: "Main goal is required." });
+        }
+
+        clearError(messageInput, messageError);
+        if (messageInput.value.trim() === "") {
+          showError(messageInput, messageError, "Please write a message.");
+          errors.push({ field: messageInput, text: "Message is required." });
+        }
+
+        return errors;
+      }
+
+      // Build the error summary at the top of the form
+      function showSummary(errors) {
+        const count = errors.length === 1 ? "is 1 error" : "are " + errors.length + " errors";
+
+        let html = "<p><strong>There " + count + " in the form:</strong></p><ul>";
+        errors.forEach(function (err) {
+          html += '<li><a href="#' + err.field.id + '">' + err.text + "</a></li>";
+        });
+        html += "</ul>";
+
+        summary.innerHTML = html;
+        summary.hidden = false;
+
+        summary.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.getElementById(link.getAttribute("href").slice(1)).focus();
+          });
+        });
+      }
+
+      // When the user clicks "Send Message"
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        success.hidden = true;
+
+        const errors = validate();
+
+        if (errors.length > 0) {
+          showSummary(errors);
+          errors[0].field.focus();
+          return;
+        }
+
+        summary.hidden = true;
+        summary.innerHTML = "";
+        form.reset();
+        success.textContent = "Thank you! We will contact you within 24 hours.";
+        success.hidden = false;
+      });
+
+      // Remove the error as soon as the user fixes a field
+      nameInput.addEventListener("input", function () {
+        if (nameInput.value.trim() !== "") clearError(nameInput, nameError);
+      });
+
+      emailInput.addEventListener("input", function () {
+        if (emailInput.validity.valid && emailInput.value.trim() !== "") {
+          clearError(emailInput, emailError);
+        }
+      });
+
+      messageInput.addEventListener("input", function () {
+        if (messageInput.value.trim() !== "") clearError(messageInput, messageError);
+      });
+
+      form.querySelectorAll('input[name="goal"]').forEach(function (radio) {
+        radio.addEventListener("change", function () {
+          clearError(null, goalError);
+        });
+      });
+    });
+    </script>
 </body>
 </html>

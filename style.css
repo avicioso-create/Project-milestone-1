@@ -1,10 +1,13 @@
  :root {
-  /* Color Palette */
-  --primary-bg: #121824; /* Deep Slate Charcoal */
-  --surface-bg: #1e2640; /* Darker Blue-Grey for Cards */
-  --accent-orange: #ff5a00; /* Athletic Orange */
-  --text-main: #f4f5f7; /* Off-White */
-  --text-muted: #9ba4b4; /* Soft Muted Grey */
+  /* Color Palette (used on every page) */
+  --primary-bg: #121824;   /* Deep Slate Charcoal - page background, cards */
+  --surface-bg: #1e2640;   /* Blue-Grey - header, sections, footer */
+  --accent: #e8222e;       /* Brand Red - matches the logo */
+  --accent-hover: #ff4d57; /* Lighter red for hover/focus */
+  --text-main: #f4f5f7;    /* Off-White */
+  --text-muted: #9ba4b4;   /* Soft Muted Grey */
+  --error: #ff6b6b;        /* Error messages */
+  --success: #4ade80;      /* Success message */
 
   /* 8px Base Spacing System */
   --space-8: 8px;
@@ -25,8 +28,6 @@ body {
   background-color: var(--primary-bg);
   color: var(--text-main);
   line-height: 1.6;
-  /* enough space so the fixed footer never covers content */
-  padding-bottom: 160px;
 }
 
 h1, h2, h3 {
@@ -41,9 +42,10 @@ h1 {
   font-size: 2.5rem;
 }
 
+/* Similarity: every section heading has the same accent bar */
 h2 {
   font-size: 1.8rem;
-  border-left: 4px solid var(--accent-orange);
+  border-left: 4px solid var(--accent);
   padding-left: var(--space-8);
 }
 
@@ -57,7 +59,16 @@ p {
 }
 
 a {
-  color: var(--accent-orange);
+  color: var(--accent);
+}
+
+/* Visible focus for keyboard users on every link, button and input */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent-hover);
+  outline-offset: 2px;
 }
 
 img {
@@ -77,14 +88,60 @@ li {
   margin-bottom: var(--space-8);
 }
 
+/* Proximity: contact details stay close together as one group */
+.contact-list li {
+  margin-bottom: var(--space-8);
+  color: var(--text-main);
+}
+
+/* Hide text visually but keep it for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ===== BUTTONS - Similarity + Focal Point ===== */
+/* Every main action looks the same, so users know it is clickable */
+.btn {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--text-main);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  padding: var(--space-16) var(--space-32);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background-color: var(--accent-hover);
+}
+
+/* ===== HEADER ===== */
 .main-header {
   background-color: var(--surface-bg);
   padding: var(--space-32) var(--space-16);
   text-align: center;
-  border-bottom: 3px solid var(--accent-orange);
+  border-bottom: 3px solid var(--accent);
 }
 
 .main-header img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-header p {
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -100,6 +157,7 @@ li {
   padding: var(--space-32) var(--space-16);
 }
 
+/* Common Region: each section lives in its own panel */
 .section-block {
   margin-bottom: var(--space-32);
   background-color: var(--surface-bg);
@@ -112,24 +170,141 @@ li {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-24);
+  align-items: start; /* cards don't stretch and leave empty gaps */
 }
 
 /* Class selector */
+/* Common Region + Similarity: every card has the same box and top border */
+/* Proximity: title, photo and text stay close together */
 .card {
   background-color: var(--primary-bg);
   padding: var(--space-16);
   border-radius: var(--space-8);
-  border-top: 2px solid var(--accent-orange);
+  border-top: 2px solid var(--accent);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-/* ID selector */
-#about {
+  justify-content: flex-start;
+  gap: var(--space-16);
   text-align: center;
 }
 
+.card h3,
+.card p {
+  margin-bottom: 0;
+}
+
+/* Every card photo is the same shape */
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* ===== CONTACT FORM ===== */
+#contact-form h3 {
+  margin-top: var(--space-32);
+}
+
+form fieldset {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--space-8);
+  padding: var(--space-24);
+  margin-bottom: var(--space-24);
+}
+
+form legend {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-main);
+  padding: 0 var(--space-8);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+}
+
+.field label,
+.radio label {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  background-color: var(--primary-bg);
+  color: var(--text-main);
+  border: 2px solid #4a5170;
+  border-radius: var(--space-8);
+  padding: 12px;
+  font: inherit;
+  width: 100%;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.radio input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+}
+
+.hint {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* Error state: red border + message + icon (not color alone) */
+[aria-invalid="true"] {
+  border-color: var(--error) !important;
+}
+
+.error-msg {
+  color: var(--error);
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.error-msg::before {
+  content: "⚠ ";
+}
+
+.error-summary {
+  border: 2px solid var(--error);
+  border-radius: var(--space-8);
+  padding: var(--space-16);
+  margin-bottom: var(--space-24);
+  color: var(--text-main);
+}
+
+.error-summary ul {
+  list-style: disc;
+  padding-left: var(--space-24);
+  margin-bottom: 0;
+}
+
+.error-summary a {
+  color: var(--error);
+}
+
+.success-msg {
+  color: var(--success);
+  font-weight: 700;
+  margin-top: var(--space-16);
+}
+
+/* ===== NAVIGATION ===== */
 .nav-menu {
   display: flex;
   flex-wrap: wrap;
@@ -149,19 +324,17 @@ li {
 }
 
 .nav-menu a:hover {
-  color: var(--accent-orange);
-  border-color: var(--accent-orange);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
+/* ===== FOOTER - Figure/Ground ===== */
+/* No longer fixed, so it never covers the page content */
 #main-footer {
   background-color: var(--surface-bg);
   padding: var(--space-16);
   text-align: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-top: 1px solid var(--accent-orange);
+  border-top: 1px solid var(--accent);
 }
 
 #main-footer p {

@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -29,16 +30,48 @@
                 <article class="card">
                     <h3>300 Routine</h3>
                     <img src="movingtire.jpg" alt="Woman flipping a tire">
+                    <button type="button" class="btn btn-outline details-toggle"
+                            aria-expanded="false" aria-controls="details-300">Show Routine</button>
+                    <div id="details-300" class="workout-details" hidden>
+                        <p>300 total reps. Base movement: 10 squats every round. Pyramid: push-ups go up by 2 each round.</p>
+                        <ul>
+                            <li>Round 1: 10 squats + 2 push-ups</li>
+                            <li>Round 2: 10 squats + 4 push-ups</li>
+                            <li>Keep climbing until you reach 300 reps</li>
+                        </ul>
+                    </div>
                 </article>
 
                 <article class="card">
                     <h3>2 Dumbbell Workout</h3>
                     <img src="2dumbbellbaddie.jpg" alt="Woman training with two dumbbells">
+                    <button type="button" class="btn btn-outline details-toggle"
+                            aria-expanded="false" aria-controls="details-dumbbell">Show Routine</button>
+                    <div id="details-dumbbell" class="workout-details" hidden>
+                        <p>All you need is a pair of dumbbells. 4 rounds, rest 60 seconds between rounds.</p>
+                        <ul>
+                            <li>12 goblet squats</li>
+                            <li>10 dumbbell rows per arm</li>
+                            <li>10 shoulder presses</li>
+                            <li>12 Romanian deadlifts</li>
+                        </ul>
+                    </div>
                 </article>
 
                 <article class="card">
                     <h3>Experience Calisthenics</h3>
                     <img src="experiencecalisthenics.jpg" alt="People exercising in a park">
+                    <button type="button" class="btn btn-outline details-toggle"
+                            aria-expanded="false" aria-controls="details-calisthenics">Show Routine</button>
+                    <div id="details-calisthenics" class="workout-details" hidden>
+                        <p>Bodyweight only. Do it at home or in the park. 3 rounds.</p>
+                        <ul>
+                            <li>8 pull-ups (or band-assisted)</li>
+                            <li>15 push-ups</li>
+                            <li>20 walking lunges</li>
+                            <li>30-second plank</li>
+                        </ul>
+                    </div>
                 </article>
             </div>
         </section>

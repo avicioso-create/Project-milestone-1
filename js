@@ -1,4 +1,4 @@
-// Bmyptla - shared JavaScript for every page
+ // Bmyptla - shared JavaScript for every page
 // Each feature first checks that its elements exist on the page,
 // so this one file can be loaded on index.html, about.html and workout.html.
 

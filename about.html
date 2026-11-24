@@ -1,129 +1,45 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About Us | The People Behind Bmyptla</title>
+    <title>Home | Bmyptla</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <header class="main-header">
         <img class="logo" src="Bmyptla.jpg" alt="Bmyptla company logo">
-        <h1>About Us</h1>
-        <p>Adrian Vicioso started Bmyptla with the idea of helping people all over the Los Angeles area, no matter their status, and making every client a real athlete. Mr. Vicioso started this journey 27 years ago, and now he is one of the most prepared Strength Coaches in the industry.</p>
-        <p>Unlock your inner athlete with us and our experienced trainers, nutritionist and life coaches.</p>
+        <h1>Home</h1>
+        <p>300 Routine / 2 Dumbbell Workout / Experience Calisthenics</p>
+        <p><a class="btn" href="workout.html">Browse Workouts</a></p>
     </header>
 
     <main class="content-container">
-        <section class="section-block" id="about">
-            <h2>Meet Our Team</h2>
-            <p>Trainers who have a true interest in you:</p>
-
-            <div class="grid-layout">
-                <div class="card">
-                    <h3>Elisa</h3>
-                    <img src="5o848w.jpg" alt="Elisa, personal trainer, and kick-boxer">
-                    <p>Intense trainer, always eager to help.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Susana</h3>
-                    <img src="Susana.jpg" alt="Susana, strength and speed coach">
-                    <p>Our powerhouse. If you want quick results, you are going to get them.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Elizabeth</h3>
-                    <img src="elizabeth.jpg" alt="Elizabeth, nutritionist">
-                    <p>Our awesome nutritionist will get you to your goals in no time.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Adrian</h3>
-                    <img src="adrian.jpg" alt="Adrian Vicioso, founder">
-                    <p>Our founder and leader.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Ariana</h3>
-                    <img src="ariana.jpg" alt="Ariana, trainer">
-                    <p>Our down-to-earth, kind expert.</p>
-                </div>
-            </div>
+        <section class="section-block">
+            <h2>Exercise with Intention</h2>
+            <p>Browse our free Calisthenics Library with only home exercises. Enjoy our Video Guide, Pictures and Instructions made by a professional Strength Coach, Mr. Adrian Vicioso, and train like the BOSS you are, at your own pace.</p>
+            <img src="300.png" alt="300 Routine logo">
         </section>
 
-        <section class="section-block" id="contact-form">
+        <section class="section-block" id="weather">
+            <h2>Training Weather</h2>
+            <p id="weather-status" class="weather-status" role="status" aria-live="polite">Loading today's weather...</p>
+            <button type="button" id="weather-refresh" class="btn btn-outline">Refresh Weather</button>
+        </section>
+
+        <section class="section-block">
             <h2>Contact Us</h2>
             <ul class="contact-list">
                 <li><strong>Phone:</strong> 626-744-3486</li>
                 <li><strong>Email:</strong> killitwith300@300routine.com</li>
                 <li><strong>Creator:</strong> Adrian Vicioso</li>
             </ul>
-
-            <h3>Book a Free Assessment</h3>
-            <p>Fields marked with <span aria-hidden="true">*</span><span class="sr-only">an asterisk</span> are required.</p>
-
-            <!-- Error summary: screen readers announce it -->
-            <div id="form-errors" class="error-summary" role="alert" hidden></div>
-
-            <form id="contactForm" action="#" method="post" novalidate>
-
-                <fieldset>
-                    <legend>Your Information</legend>
-
-                    <div class="field">
-                        <label for="name">Full name <span aria-hidden="true">*</span></label>
-                        <input type="text" id="name" name="name" autocomplete="name"
-                               required aria-required="true" aria-describedby="name-error">
-                        <p id="name-error" class="error-msg" hidden></p>
-                    </div>
-
-                    <div class="field">
-                        <label for="email">Email <span aria-hidden="true">*</span></label>
-                        <input type="email" id="email" name="email" autocomplete="email"
-                               required aria-required="true" aria-describedby="email-hint email-error">
-                        <p id="email-hint" class="hint">Example: name@email.com</p>
-                        <p id="email-error" class="error-msg" hidden></p>
-                    </div>
-
-                    <div class="field">
-                        <label for="phone">Phone (optional)</label>
-                        <input type="tel" id="phone" name="phone" autocomplete="tel">
-                    </div>
-                </fieldset>
-
-                <fieldset aria-describedby="goal-error">
-                    <legend>What is your main goal? <span aria-hidden="true">*</span></legend>
-
-                    <div class="radio">
-                        <input type="radio" id="goal-strength" name="goal" value="strength" required>
-                        <label for="goal-strength">Build strength</label>
-                    </div>
-                    <div class="radio">
-                        <input type="radio" id="goal-weight" name="goal" value="weight-loss">
-                        <label for="goal-weight">Lose weight</label>
-                    </div>
-                    <div class="radio">
-                        <input type="radio" id="goal-calisthenics" name="goal" value="calisthenics">
-                        <label for="goal-calisthenics">Learn calisthenics</label>
-                    </div>
-                    <p id="goal-error" class="error-msg" hidden></p>
-                </fieldset>
-
-                <div class="field">
-                    <label for="message">Message <span aria-hidden="true">*</span></label>
-                    <textarea id="message" name="message" rows="5"
-                              required aria-required="true" aria-describedby="message-error"></textarea>
-                    <p id="message-error" class="error-msg" hidden></p>
-                </div>
-
-                <button type="submit" class="btn">Send Message</button>
-                <p id="form-success" class="success-msg" role="status" hidden></p>
-            </form>
+            <p><a class="btn" href="about.html#contact-form">Book a Free Assessment</a></p>
         </section>
     </main>
 
@@ -136,136 +52,5 @@
         </nav>
     </footer>
 
-    <script>
-    // Accessible validation for the contact form
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("contactForm");
-      if (!form) return;
-
-      const summary = document.getElementById("form-errors");
-      const success = document.getElementById("form-success");
-
-      const nameInput = document.getElementById("name");
-      const emailInput = document.getElementById("email");
-      const messageInput = document.getElementById("message");
-      const firstGoal = document.getElementById("goal-strength");
-
-      const nameError = document.getElementById("name-error");
-      const emailError = document.getElementById("email-error");
-      const goalError = document.getElementById("goal-error");
-      const messageError = document.getElementById("message-error");
-
-      // Show an error: red border (aria-invalid) + message text
-      function showError(input, errorEl, message) {
-        if (input) input.setAttribute("aria-invalid", "true");
-        errorEl.textContent = message;
-        errorEl.hidden = false;
-      }
-
-      // Remove an error
-      function clearError(input, errorEl) {
-        if (input) input.removeAttribute("aria-invalid");
-        errorEl.textContent = "";
-        errorEl.hidden = true;
-      }
-
-      // Check every field and return a list of problems
-      function validate() {
-        const errors = [];
-
-        clearError(nameInput, nameError);
-        if (nameInput.value.trim() === "") {
-          showError(nameInput, nameError, "Please enter your full name.");
-          errors.push({ field: nameInput, text: "Full name is required." });
-        }
-
-        clearError(emailInput, emailError);
-        if (emailInput.value.trim() === "") {
-          showError(emailInput, emailError, "Please enter your email.");
-          errors.push({ field: emailInput, text: "Email is required." });
-        } else if (!emailInput.validity.valid) {
-          showError(emailInput, emailError, "Enter a valid email, like name@email.com.");
-          errors.push({ field: emailInput, text: "Email format is not valid." });
-        }
-
-        const goalChecked = form.querySelector('input[name="goal"]:checked');
-        clearError(null, goalError);
-        if (!goalChecked) {
-          showError(null, goalError, "Please choose your main goal.");
-          errors.push({ field: firstGoal, text: "Main goal is required." });
-        }
-
-        clearError(messageInput, messageError);
-        if (messageInput.value.trim() === "") {
-          showError(messageInput, messageError, "Please write a message.");
-          errors.push({ field: messageInput, text: "Message is required." });
-        }
-
-        return errors;
-      }
-
-      // Build the error summary at the top of the form
-      function showSummary(errors) {
-        const count = errors.length === 1 ? "is 1 error" : "are " + errors.length + " errors";
-
-        let html = "<p><strong>There " + count + " in the form:</strong></p><ul>";
-        errors.forEach(function (err) {
-          html += '<li><a href="#' + err.field.id + '">' + err.text + "</a></li>";
-        });
-        html += "</ul>";
-
-        summary.innerHTML = html;
-        summary.hidden = false;
-
-        summary.querySelectorAll("a").forEach(function (link) {
-          link.addEventListener("click", function (e) {
-            e.preventDefault();
-            document.getElementById(link.getAttribute("href").slice(1)).focus();
-          });
-        });
-      }
-
-      // When the user clicks "Send Message"
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        success.hidden = true;
-
-        const errors = validate();
-
-        if (errors.length > 0) {
-          showSummary(errors);
-          errors[0].field.focus();
-          return;
-        }
-
-        summary.hidden = true;
-        summary.innerHTML = "";
-        form.reset();
-        success.textContent = "Thank you! We will contact you within 24 hours.";
-        success.hidden = false;
-      });
-
-      // Remove the error as soon as the user fixes a field
-      nameInput.addEventListener("input", function () {
-        if (nameInput.value.trim() !== "") clearError(nameInput, nameError);
-      });
-
-      emailInput.addEventListener("input", function () {
-        if (emailInput.validity.valid && emailInput.value.trim() !== "") {
-          clearError(emailInput, emailError);
-        }
-      });
-
-      messageInput.addEventListener("input", function () {
-        if (messageInput.value.trim() !== "") clearError(messageInput, messageError);
-      });
-
-      form.querySelectorAll('input[name="goal"]').forEach(function (radio) {
-        radio.addEventListener("change", function () {
-          clearError(null, goalError);
-        });
-      });
-    });
-    </script>
 </body>
-</html>
+</html> 
